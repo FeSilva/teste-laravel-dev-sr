@@ -77,6 +77,7 @@
     <script src="{{ asset('assets/js/pages/dashboard-2.init.js') }}"></script>
 
     @stack('scripts')
+    @yield('scripts')
 
 </body>
 
