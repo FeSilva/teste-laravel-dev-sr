@@ -1,12 +1,12 @@
 <div class="app-menu">
     <div class="logo-box">
         <a href="{{ url('/') }}" class="logo-light">
-            <img src="{{ asset('assets/images/logo-light.png') }}" alt="logo" class="logo-lg">
-            <img src="{{ asset('assets/images/logo-sm.png') }}" alt="small logo" class="logo-sm">
+            <img src="{{ asset('assets/images/logo.jpg') }}" alt="logo" class="logo-lg">
+            <img src="{{ asset('assets/images/logo.jpg') }}" alt="small logo" class="logo-sm">
         </a>
         <a href="{{ url('/') }}" class="logo-dark">
-            <img src="{{ asset('assets/images/logo-dark.png') }}" alt="dark logo" class="logo-lg">
-            <img src="{{ asset('assets/images/logo-sm.png') }}" alt="small logo" class="logo-sm">
+            <img src="{{ asset('assets/images/logo.jpg') }}" alt="dark logo" class="logo-lg">
+            <img src="{{ asset('assets/images/logo.jpg') }}" alt="small logo" class="logo-sm">
         </a>
     </div>
 

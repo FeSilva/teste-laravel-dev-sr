@@ -21,7 +21,7 @@ return new class extends Migration
             $table->foreign('created_by')->references('id')->on('users')->onDelete('cascade');
             $table->string("title");
             $table->string("description");
-            $table->enum('status', ['aberto', 'em progresso', 'resolvido'])->default('aberto'); // Aqui
+            $table->enum('status', ['aberto', 'in_progress', 'resolvido'])->default('aberto'); // Aqui
             $table->timestamps();
         });
     }

@@ -11,9 +11,16 @@ Route::middleware([
 ])->group(function () {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
     Route::prefix('/tickets')->group(function () {
+        //View
         Route::get('/', [TicketsController::class, 'index'])->name("tickets.list");
         Route::get('/create', [TicketsController::class, 'create'])->name("tickets.create");
-        Route::post('/store', [TicketsController::class, 'store'])->name("tickets.store");
+        
+        //Get List
+        Route::get('/datatable', [TicketsController::class, 'getTicketsTable'])->name("tickets.datatable");
+        Route::post('/find/ticket/{id}', [TicketsController::class, 'getTicketsFind'])->name("tickets.find");
 
+        //process
+        Route::post('/store', [TicketsController::class, 'store'])->name("tickets.store");
+        Route::post("/update/{id}", [TicketsController::class, 'update'])->name("tickets.update");
     });
 });

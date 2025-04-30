@@ -20,7 +20,7 @@
                 <i class="mdi mdi-menu"></i>
             </button>
 
-            <!-- Dropdown Create New -->
+            <!-- Dropdown Create New 
             <div class="dropdown d-none d-xl-block">
                 <a class="nav-link dropdown-toggle waves-effect waves-light" data-bs-toggle="dropdown" href="#" role="button">
                     Criar Novo
@@ -44,23 +44,8 @@
                         <i class="fe-headphones me-1"></i> Suporte
                     </a>
                 </div>
-            </div>
+            </div>-->
 
-            <!-- Mega Menu -->
-            <div class="dropdown dropdown-mega d-none d-xl-block">
-                <a class="nav-link dropdown-toggle waves-effect waves-light" data-bs-toggle="dropdown" href="#" role="button">
-                    Mega Menu
-                    <i class="mdi mdi-chevron-down ms-1"></i>
-                </a>
-                <div class="dropdown-menu dropdown-megamenu">
-                    <!-- Aqui vai o conteúdo interno do mega menu -->
-                    <div class="text-center mt-3">
-                        <h3 class="text-dark">Promoção Especial!</h3>
-                        <h4>Descontos até 70%.</h4>
-                        <a href="#" class="btn btn-primary rounded-pill mt-3">Saiba Mais</a>
-                    </div>
-                </div>
-            </div>
 
         </div>
 
@@ -103,6 +88,7 @@
 
                     <span class="ms-1 d-none d-md-inline-block">
                         {{ Auth::user()->name }} <i class="mdi mdi-chevron-down"></i>
+                        <div><small class="text-muted">{{ Auth::user()->setor }}</small></div>
                     </span>
                 </a>
 
@@ -110,15 +96,7 @@
                     <div class="dropdown-header noti-title">
                         <h6 class="text-overflow m-0">Bem-vindo!</h6>
                     </div>
-                    <a href="#" class="dropdown-item notify-item">
-                        <i class="fe-user"></i> Meu Perfil
-                    </a>
-                    <a href="#" class="dropdown-item notify-item">
-                        <i class="fe-settings"></i> Configurações
-                    </a>
-                    <a href="#" class="dropdown-item notify-item">
-                        <i class="fe-lock"></i> Tela de Bloqueio
-                    </a>
+                  
                     <div class="dropdown-divider"></div>
                     <form method="POST" action="{{ route('logout') }}">
                         @csrf

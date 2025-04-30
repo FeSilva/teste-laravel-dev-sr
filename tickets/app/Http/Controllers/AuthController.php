@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Models\User;
+use Illuminate\Support\Facades\Hash;
 
 class AuthController extends Controller
 {
@@ -33,6 +35,36 @@ class AuthController extends Controller
         ]);
     }
 
+
+    /**
+     * Registro para API.
+     */
+    public function createUser(Request $request)
+    {
+        $validated = $request->validate([
+            'name' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'setor' => ['required', 'string'],
+            'password' => ['required', 'string', 'min:8', 'confirmed'], // password + password_confirmation
+        ]);
+
+        // Criar usuário
+        $user = User::create([
+            'name' => $validated['name'],
+            'email' => $validated['email'],
+            'setor' => $validated['setor'],
+            'password' => Hash::make($validated['password']),
+        ]);
+
+        // Gerar token Sanctum
+        $token = $user->createToken('api-token')->plainTextToken;
+
+        return response()->json([
+            'access_token' => $token,
+            'token_type'   => 'Bearer',
+            'user' => $user,
+        ]);
+    }
     /**
      * Logout da API (revogar token).
      */

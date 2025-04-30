@@ -11,9 +11,17 @@ Route::get('/user', function (Request $request) {
 
 // Rotas públicas
 Route::post('/auth', [AuthController::class, 'login']);
+Route::post('/register', [AuthController::class, 'createUser']);
 
-// Rotas públicas
-Route::prefix('/categories')->group(function () {
-    Route::post('/add', [TicketsController::class, 'addCategory'])->name("categories.search");
-    Route::get('/search', [TicketsController::class, 'searchCategorie'])->name("categories.search");
+Route::prefix('categorias')->group(function () {
+    Route::post('/add', [TicketsController::class, 'addCategory'])->middleware('auth:sanctum')->name("categories.add");
+    Route::get('/get', [TicketsController::class, 'searchCategorie'])->name("categories.search");
+    Route::delete('/{id}', [TicketsController::class, 'destroyCategory']);
+});
+
+Route::prefix('tickets')->middleware('auth:sanctum')->group(function () {
+    Route::post('/', [TicketsController::class, 'store']);
+    Route::get('/{id}', [TicketsController::class, 'getTicketsFind']);
+    Route::put('/{id}', [TicketsController::class, 'update']);
+    Route::delete('/{id}', [TicketsController::class, 'destroy']);
 });

@@ -190,3 +190,29 @@ COPY .docker/php.ini /usr/local/etc/php/php.ini
 ---
 
 
+## Telas da Aplicação
+
+## Login
+![alt text](image.png)
+
+## Register
+![alt text](image-1.png)
+
+## Chamados 
+![LIST](image-2.png)
+
+![Create](image-3.png)
+
+![Edit](image-4.png)
+
+![owner required](image-5.png)
+
+![alt text](image-6.png)
+![alt text](image-7.png)
+
+##  resolved
+![alt text](image-8.png)
+
+## Collection apiDog
+
+workflow: Felipe Silva002 has invited you to join a project TIckets on Apidog https://app.apidog.com/invite/project?token=llo4EPw-BFSVI8a5ju9gF

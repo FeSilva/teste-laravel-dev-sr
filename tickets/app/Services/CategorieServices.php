@@ -16,4 +16,11 @@ Class CategorieServices extends CategoriesRepository
    
         return $this->findName($name);
     }
+
+    public function deleteCategoria($id) 
+    {
+        $categoria = $this->findOrFail($id); // carrega o ticket
+        $categoria->delete(); // deleta o ticket
+        return true;
+    } 
 }

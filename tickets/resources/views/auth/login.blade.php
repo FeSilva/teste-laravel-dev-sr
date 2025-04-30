@@ -1,48 +1,99 @@
-<x-guest-layout>
-    <x-authentication-card>
-        <x-slot name="logo">
-            <x-authentication-card-logo />
-        </x-slot>
+@extends('layouts.guest')
 
-        <x-validation-errors class="mb-4" />
+@section('title', 'Login')
 
-        @session('status')
-            <div class="mb-4 font-medium text-sm text-green-600">
-                {{ $value }}
-            </div>
-        @endsession
+@section('body')
+    <div class="card bg-pattern">
+        <div class="card-body p-4">
 
-        <form method="POST" action="{{ route('login') }}">
-            @csrf
-
-            <div>
-                <x-label for="email" value="{{ __('Email') }}" />
-                <x-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus autocomplete="username" />
-            </div>
-
-            <div class="mt-4">
-                <x-label for="password" value="{{ __('Password') }}" />
-                <x-input id="password" class="block mt-1 w-full" type="password" name="password" required autocomplete="current-password" />
-            </div>
-
-            <div class="block mt-4">
-                <label for="remember_me" class="flex items-center">
-                    <x-checkbox id="remember_me" name="remember" />
-                    <span class="ms-2 text-sm text-gray-600">{{ __('Remember me') }}</span>
-                </label>
-            </div>
-
-            <div class="flex items-center justify-end mt-4">
-                @if (Route::has('password.request'))
-                    <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="{{ route('password.request') }}">
-                        {{ __('Forgot your password?') }}
+            <div class="text-center w-75 m-auto">
+                <div class="auth-brand mb-3">
+                    <a href="#" class="logo logo-dark text-center">
+                        <span class="logo-lg">
+                            <img src="{{ asset('assets/images/logo.jpg') }}" alt="" height="80">
+                        </span>
                     </a>
-                @endif
-
-                <x-button class="ms-4">
-                    {{ __('Log in') }}
-                </x-button>
+                    <a href="#" class="logo logo-light text-center">
+                        <span class="logo-lg">
+                            <img src="{{ asset('assets/images/logo-light.png') }}" alt="" height="22">
+                        </span>
+                    </a>
+                </div>
+                <p class="text-muted mb-4 mt-3 text-center">
+                   Entre com seu email e senha para acessar o painel de chamados.
+                </p>
             </div>
-        </form>
-    </x-authentication-card>
-</x-guest-layout>
+
+            <x-validation-errors class="mb-3" />
+
+            @if (session('status'))
+                <div class="alert alert-success">{{ session('status') }}</div>
+            @endif
+
+            <form method="POST" action="{{ route('login') }}">
+                @csrf
+
+                <div class="mb-3">
+                    <label for="email" class="form-label">E-mail</label>
+                    <input
+                      type="email"
+                      id="email"
+                      name="email"
+                      class="form-control"
+                      value="{{ old('email') }}"
+                      required
+                      autofocus
+                    >
+                </div>
+
+                <div class="mb-3">
+                    <label for="password" class="form-label">Password</label>
+                    <div class="input-group input-group-merge">
+                        <input
+                          type="password"
+                          id="password"
+                          name="password"
+                          class="form-control"
+                          required
+                        >
+                        <div class="input-group-text" data-password="false">
+                            <span class="password-eye"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <div class="form-check">
+                        <input
+                          type="checkbox"
+                          class="form-check-input"
+                          id="remember_me"
+                          name="remember"
+                        >
+                        <label class="form-check-label" for="remember_me">
+                            Remember me
+                        </label>
+                    </div>
+                </div>
+
+                <div class="text-center d-grid">
+                    <button type="submit" class="btn btn-primary">
+                        Acessar
+                    </button>
+                </div>
+            </form>
+
+        </div>
+    </div>
+
+    <div class="row mt-3">
+        <div class="col-12 text-center">
+            @if (Route::has('register'))
+                <p class="text-white-50">
+                  Não tem uma conta?
+                  <a href="{{ route('register') }}" class="text-white ms-1"><b>Criar uma conta</b></a>
+                </p>
+            @endif
+        </div>
+    </div>
+@endsection
