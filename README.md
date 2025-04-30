@@ -193,25 +193,25 @@ COPY .docker/php.ini /usr/local/etc/php/php.ini
 ## Telas da Aplicação
 
 ## Login
-![alt text](image.png)
+![image](https://github.com/user-attachments/assets/b99d4dc2-5b13-40a8-b67d-f0ae30b1008d)
 
 ## Register
-![alt text](image-1.png)
+![image](https://github.com/user-attachments/assets/cae9f4e1-f2cc-4dbb-9965-73bfd7cad357)
+
 
 ## Chamados 
-![LIST](image-2.png)
+![image](https://github.com/user-attachments/assets/799573e5-8674-4905-ab03-c47bb16b77fe)
+![image](https://github.com/user-attachments/assets/741c425d-732b-4be0-8d58-d992464c975a)
+![image](https://github.com/user-attachments/assets/c1f4dafb-a4e0-4b1d-8506-8d43a9736c11)
+![image](https://github.com/user-attachments/assets/578253ae-dde4-4a1b-80e5-98e8de4f0303)
+![image](https://github.com/user-attachments/assets/08d336fc-2c22-4838-8eaa-30ddbf9029ff)
+![image](https://github.com/user-attachments/assets/60414709-13fa-4ba6-84fe-c18ace525218)
 
-![Create](image-3.png)
-
-![Edit](image-4.png)
-
-![owner required](image-5.png)
-
-![alt text](image-6.png)
-![alt text](image-7.png)
 
 ##  resolved
-![alt text](image-8.png)
+![image](https://github.com/user-attachments/assets/e108b980-862a-42ca-8975-32a483b67f85)
+![image](https://github.com/user-attachments/assets/8d3ad514-740a-4fdd-8e6e-970134f4c5a7)
+
 
 ## Collection apiDog
 
